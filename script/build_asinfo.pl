@@ -49,7 +49,7 @@ foreach my $rir (@rir_name) {
     while (<RIR>) {
         chomp;
         if(/^([a-z]+)\|([A-Z]{2})\|asn\|(\d+)\|\d+\|(\d+)\|allocated$/) {
-            my( $r, $cc, $asn, $date ) = ($1, $2, $3, $4 );
+            my( $r, $cc, $asn, $date ) = ( $1, $2, $3, $4 );
             if(!defined( $as{$asn} )) {
                 $as{$asn} = { cc => $cc, rir => $r, date => $date };
             } else {
@@ -60,6 +60,21 @@ foreach my $rir (@rir_name) {
     }
     close(RIR);
 }
+
+open JP, "<$workdir/tmp/as-numbers.txt" or die "Can't open file: $!";
+while (<JP>) {
+    chomp;
+    if(/^(\d+)\s+(.*?)\s+(.*?)$/) {
+        my( $asn, $name, $contact ) = ( $1, $2, $3 );
+        if(!defined( $as{$asn} )) {
+            $as{$asn} = { cc => 'JP', rir => 'jpnic' }
+        }
+        if(!defined( $as_name{$asn} )) {
+            $as_name{$asn} = $name;
+        }
+    }
+}
+close(JP);
 
 my $out = "$workdir/asinfo/asinfo-$now";
 open OUT, ">$out" or die "Can't open file: $!";

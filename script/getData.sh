@@ -17,6 +17,7 @@ ${WGET_CMD} -P ${TMP_DIR} ftp://ftp.apnic.net/pub/stats/apnic/delegated-apnic-la
 ${WGET_CMD} -P ${TMP_DIR} ftp://ftp.afrinic.net/pub/stats/afrinic/delegated-afrinic-latest
 ${WGET_CMD} -P ${TMP_DIR} ftp://ftp.lacnic.net/pub/stats/lacnic/delegated-lacnic-latest
 ${WGET_CMD} -P ${TMP_DIR} ftp://ftp.ripe.net/pub/stats/ripencc/delegated-ripencc-latest
+${WGET_CMD} -P ${TMP_DIR} http://www.nic.ad.jp/ja/ip/as-numbers.txt
 
 for i in ${TMP_DIR}/*; do
 	${NKF_CMD} -w --overwrite $i;
