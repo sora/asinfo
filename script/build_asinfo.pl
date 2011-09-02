@@ -79,7 +79,7 @@ close(JP);
 my $out = "$workdir/asinfo/asinfo-$now";
 open OUT, ">$out" or die "Can't open file: $!";
 
-foreach my $asn (keys %as) {
+foreach my $asn ( sort { $a <=> $b } keys %as) {
     my( $name, $capi, $conti, $lat, $long, $cc, $rir, $date );
 
     $name  = $as_name{$asn} || "unknown";
