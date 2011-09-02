@@ -6,7 +6,7 @@ SCRIPT_DIR=${WORK_DIR}/script
 
 WGET_CMD=/usr/local/bin/wget
 NKF_CMD=/usr/local/bin/nkf
-PERL_CMD=/usr/bin/perl
+PERL_CMD=/usr/local/bin/perl
 
 rm -f ${TMP_DIR}/*
 
