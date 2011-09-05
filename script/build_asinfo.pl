@@ -90,8 +90,8 @@ foreach my $asn ( sort { $a <=> $b } keys %as) {
 
     $capi  = $lat{$cc}->{capi} || "";
     $conti = $lat{$cc}->{conti} || "";
-   	$lat   = $lat{$cc}->{lat} || "";
-   	$long  = $lat{$cc}->{long} || "";
+    $lat   = $lat{$cc}->{lat} || "";
+    $long  = $lat{$cc}->{long} || "";
 
     # see http://www.maxmind.com/app/faq#EUAPcodes
     if($cc eq 'EU') {
